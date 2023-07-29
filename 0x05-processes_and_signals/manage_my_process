@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#A Daemon process.
+# A Daemon process.
 
 while true; do
         echo I am alive! >> /tmp/my_process

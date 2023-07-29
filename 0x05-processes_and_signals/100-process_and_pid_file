@@ -1,12 +1,21 @@
 #!/usr/bin/env bash
-#The function of this script is to write its own PID to file and respond to signals.
+# The function of this script is to write its own PID to file and respond to signals.
 
 file=/var/run/myscript.pid
-trap 'echo Y U no love me?!' SIGINT
-trap 'rm $file; exit' SIGQUIT
-trap 'echo I hate the kill command; rm $file; exit' SIGTERM
+
+cleanup() {
+    echo "Y U no love me?!"
+    rm -f "$file"
+    exit
+}
+
+trap cleanup SIGINT
+trap cleanup SIGQUIT
+trap cleanup SIGTERM
+
 echo $$ > "$file"
+
 while true; do
-        echo To infinity and beyond
-	sleep 2
+    echo "To infinity and beyond"
+    sleep 2
 done
