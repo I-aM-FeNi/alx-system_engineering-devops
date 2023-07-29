@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#The function of this script is to print the phrase 'to infinity and beyond' indefinitely.
+
+trap 'echo "I am invincible!!!"' SIGTERM
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
